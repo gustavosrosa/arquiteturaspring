@@ -1,5 +1,6 @@
 package io.github.gustavosrosa.arquiteturaspring;
 
+import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
@@ -12,6 +13,7 @@ public class ArquiteturaspringApplication {
 		/** Usado para pre-configurar o runner */
 		
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ArquiteturaspringApplication.class);
+		builder.bannerMode(Mode.OFF); // Remove o banner inicial
 		builder.run(args);
 	}
 
