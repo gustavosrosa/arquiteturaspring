@@ -18,13 +18,15 @@ public class ArquiteturaspringApplication {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ArquiteturaspringApplication.class);
 		builder.bannerMode(Mode.OFF); // Remove o banner inicial
 		
+		builder.profiles("prod");
+		
 		builder.run(args);
 		
 		// Usado para carregar um bean
 		ConfigurableApplicationContext configurableApplicationContext = builder.context();
 		// Object produtoRepository = configurableApplicationContext.getBean("produtoRepository");
 		
-		builder.profiles("prod");
+		
 		// builder.properties("");
 		
 		/* Obtendo um environment (de dentro do application.properties) */
