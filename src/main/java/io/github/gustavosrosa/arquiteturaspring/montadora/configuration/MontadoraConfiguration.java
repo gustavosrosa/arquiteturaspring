@@ -2,6 +2,7 @@ package io.github.gustavosrosa.arquiteturaspring.montadora.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import io.github.gustavosrosa.arquiteturaspring.montadora.Motor;
 import io.github.gustavosrosa.arquiteturaspring.montadora.TipoMotor;
@@ -14,6 +15,7 @@ public class MontadoraConfiguration {
 	 * Método que retorna um objeto construído
 	 * @return motor
 	 */
+	@Primary // Se encontrar mais de 1 bean e eu ocultar o qualifier dele, utilizará este bean
 	@Bean(name = "motorAspirado")
 	Motor motorAspirado() {
 		Motor motor = new Motor();

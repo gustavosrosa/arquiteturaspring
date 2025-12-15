@@ -12,6 +12,7 @@ import io.github.gustavosrosa.arquiteturaspring.montadora.Carro;
 import io.github.gustavosrosa.arquiteturaspring.montadora.CarroStatus;
 import io.github.gustavosrosa.arquiteturaspring.montadora.Chave;
 import io.github.gustavosrosa.arquiteturaspring.montadora.Motor;
+import io.github.gustavosrosa.arquiteturaspring.montadora.configuration.Aspirado;
 
 @RestController
 @RequestMapping("carro")
@@ -22,7 +23,8 @@ public class TesteFabricaController {
 	 * Ir até as cofigurations
 	 */
 	@Autowired
-	@Qualifier("motorEletrico") // Necessario colocar quando se tem mais de 1 bean do mesmo tipo
+	//@Qualifier("motorEletrico") // Necessario colocar quando se tem mais de 1 bean do mesmo tipo
+	@Aspirado
 	private Motor motor;
 	
 	@PostMapping
