@@ -14,14 +14,36 @@ public class MontadoraConfiguration {
 	 * Método que retorna um objeto construído
 	 * @return motor
 	 */
-	@Bean
-	Motor motor() {
+	@Bean(name = "motorAspirado")
+	Motor motorAspirado() {
 		Motor motor = new Motor();
 		motor.setCavalos(120);
 		motor.setCilindros(4);
 		motor.setModelo("X");
 		motor.setLitragem(2.0);
 		motor.setTipoMotor(TipoMotor.ASPIRADO);
+		return motor;
+	}
+	
+	@Bean(name = "motorEletrico")
+	Motor motorEletrico() {
+		Motor motor = new Motor();
+		motor.setCavalos(120);
+		motor.setCilindros(4);
+		motor.setModelo("X");
+		motor.setLitragem(2.0);
+		motor.setTipoMotor(TipoMotor.ELETRICO);
+		return motor;
+	}
+	
+	@Bean(name = "motorTurbo")
+	Motor motorTurbo() {
+		Motor motor = new Motor();
+		motor.setCavalos(120);
+		motor.setCilindros(4);
+		motor.setModelo("X");
+		motor.setLitragem(2.0);
+		motor.setTipoMotor(TipoMotor.TURBO);
 		return motor;
 	}
 

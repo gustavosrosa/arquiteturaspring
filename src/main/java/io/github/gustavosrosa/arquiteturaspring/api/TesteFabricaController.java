@@ -1,6 +1,7 @@
 package io.github.gustavosrosa.arquiteturaspring.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ public class TesteFabricaController {
 	 * Ir até as cofigurations
 	 */
 	@Autowired
+	@Qualifier("motorEletrico") // Necessario colocar quando se tem mais de 1 bean do mesmo tipo
 	private Motor motor;
 	
 	@PostMapping
