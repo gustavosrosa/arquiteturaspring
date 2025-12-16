@@ -23,4 +23,8 @@ public class TodoService {
 		return todoRepository.findById(id).orElse(null);
 	}
 
+	public void atualizarCampoUnico(TodoEntity todo) {
+		todoRepository.save(todo);
+	}
+
 }

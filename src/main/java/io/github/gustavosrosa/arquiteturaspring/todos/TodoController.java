@@ -1,6 +1,7 @@
 package io.github.gustavosrosa.arquiteturaspring.todos;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -35,4 +36,9 @@ public class TodoController {
 		return this.service.buscar(id);
 	}
 
+	@PatchMapping("{id}")
+	public void atualizarCampoUnico(@PathVariable Integer id, @RequestBody TodoEntity todo) {
+		todo.setId(id);
+		this.service.atualizarCampoUnico(todo);
+	}
 }
