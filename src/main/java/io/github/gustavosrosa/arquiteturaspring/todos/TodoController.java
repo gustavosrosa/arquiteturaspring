@@ -1,6 +1,9 @@
 package io.github.gustavosrosa.arquiteturaspring.todos;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +21,18 @@ public class TodoController {
 	@PostMapping
 	public TodoEntity salvar(@RequestBody TodoEntity todoEntity) {
 		return this.service.salvar(todoEntity);
+	}
+	
+	@PutMapping("{id}")
+	public void atualizarStatus(@PathVariable Integer id, @RequestBody TodoEntity todo) {
+		todo.setId(id);
+		this.service.atualizarStatus(todo);
+		
+	}
+	
+	@GetMapping("{id}")
+	public TodoEntity buscar(@PathVariable Integer id) {
+		return this.service.buscar(id);
 	}
 
 }
