@@ -11,10 +11,11 @@ public class TodoValidator {
 		this.todoRepository = todoRepository;
 	}
 
-	public void existeTodoComEssaDescricao(String descricao) {
+	public void validar(TodoEntity todoEntity) {
+		String descricao = todoEntity.getDescricao();
 		if (todoRepository.existsByDescricao(descricao)) {
 			throw new IllegalArgumentException("Já existe uma tarefa com essa descrição!");
 		}
-	}
+	}	
 
 }
