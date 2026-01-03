@@ -3,13 +3,21 @@ package io.github.gustavosrosa.arquiteturaspring;
 import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
-
+import io.github.gustavosrosa.arquiteturaspring.todos.AppProperties;
 import io.github.gustavosrosa.arquiteturaspring.todos.ExemploValue;
 
 @SpringBootApplication // Deve ter a annotation spring boot application
+@EnableConfigurationProperties
 public class ArquiteturaspringApplication {
+
+    private final AppProperties appProperties;
+
+    ArquiteturaspringApplication(AppProperties appProperties) {
+        this.appProperties = appProperties;
+    }
 
 	public static void main(String[] args) {
 		//SpringApplication.run(ArquiteturaspringApplication.class, args);
@@ -38,6 +46,8 @@ public class ArquiteturaspringApplication {
 		ExemploValue exemploValue = configurableApplicationContext.getBean(ExemploValue.class);
 		exemploValue.imprimirVariavelDoApplicationProperties();
 		
+		AppProperties appProperties = configurableApplicationContext.getBean(AppProperties.class);
+		System.out.println(appProperties.getValor1() + " " + appProperties.getVariavel());
 		
 		
 	}
